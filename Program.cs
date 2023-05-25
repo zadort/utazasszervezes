@@ -2,61 +2,61 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace UtazasiIrodaProgram
+namespace utazasszervezes
 {
     class Program
     {
         static void Main(string[] args)
         {
-            List<Utas> utasok = new List<Utas>();
-            List<Utazas> utazasok = new List<Utazas>();
-            string menu = "0";
-            while (menu != "6")
+            List<Utas> utasok = new List<Utas>(); // Az eddig felvett utasokat tároló lista
+            List<Utazas> utazasok = new List<Utazas>(); // Az eddig felvitt utazásokat tároló lista
+            string menu = "0"; // A menüpont kiválasztására szolgáló változó
+            while (menu != "6") // Amíg a felhasználó nem választja a kilépést
             {
-                Console.WriteLine("1. Új utas felvétele\n2. Utas adatainak módosítása\n3. Új utazás felvétele\n4. Utazásra jelentkezés\n5. Előleg befizetése és módosítása\n6. Kilépés");
-                menu = Console.ReadLine();
-                switch (menu)
+                Console.WriteLine("1. Új utas felvétele\n2. Utas adatainak módosítása\n3. Új utazás felvétele\n4. Utazásra jelentkezés\n5. Előleg befizetése és módosítása\n6. Kilépés"); // Menü kiírása
+                menu = Console.ReadLine(); // Menüpont kiválasztása
+                switch (menu) // A kiválasztott menüpont alapján való elágazás
                 {
                     case "1":
-                        Utas u = new Utas();
+                        Utas u = new Utas(); // Új Utas objektum létrehozása
                         Console.Write("Add meg az utas nevét: ");
-                        u.Nev = Console.ReadLine();
+                        u.Nev = Console.ReadLine(); // Az utas nevének beolvasása
                         Console.Write("Add meg az utas címét: ");
-                        u.Cim = Console.ReadLine();
+                        u.Cim = Console.ReadLine(); // Az utas címének beolvasása
                         Console.Write("Add meg az utas telefonszámát: ");
-                        u.Telefonszam = Console.ReadLine();
-                        utasok.Add(u);
+                        u.Telefonszam = Console.ReadLine(); // Az utas telefonszámának beolvasása
+                        utasok.Add(u); // Az új utas hozzáadása a listához
                         break;
                     case "2":
                         Console.Write("Add meg az utas nevét, akinek az adatait módosítani szeretnéd: ");
-                        string nev = Console.ReadLine();
-                        bool talalt = false;
-                        foreach (Utas utas in utasok)
+                        string nev = Console.ReadLine(); // Az utas nevének beolvasása
+                        bool talalt = false; // Változó az utas kereséséhez
+                        foreach (Utas utas in utasok) // Végigmegyünk az összes utason a listában
                         {
-                            if (utas.Nev == nev)
+                            if (utas.Nev == nev) // Ha az utas neve megegyezik a keresettel
                             {
                                 Console.Write("Add meg az új címet: ");
-                                utas.Cim = Console.ReadLine();
+                                utas.Cim = Console.ReadLine(); // Az új cím beolvasása
                                 Console.Write("Add meg az új telefonszámot: ");
-                                utas.Telefonszam = Console.ReadLine();
-                                talalt = true;
+                                utas.Telefonszam = Console.ReadLine(); // Az új telefonszám beolvasása
+                                talalt = true; // A keresett utas megtalálva
                                 break;
                             }
                         }
-                        if (!talalt)
+                        if (!talalt) // Ha nem találtuk meg az utast
                         {
                             Console.WriteLine("Nincs ilyen nevű utas az adatbázisban!");
                         }
                         break;
                     case "3":
-                        Utazas ut = new Utazas();
+                        Utazas ut = new Utazas(); // Új Utazas objektum létrehozása
                         Console.Write("Add meg az úticélt: ");
-                        ut.Uticel = Console.ReadLine();
+                        ut.Uticel = Console.ReadLine(); // Az uticél beolvasása
                         Console.Write("Add meg az árat: ");
-                        ut.Ar = Convert.ToInt32(Console.ReadLine());
+                        ut.Ar = Convert.ToInt32(Console.ReadLine()); // Az ár beolvasása
                         Console.Write("Add meg a maximális létszámot: ");
-                        ut.MaxLetszam = Convert.ToInt32(Console.ReadLine());
-                        utazasok.Add(ut);
+                        ut.MaxLetszam = Convert.ToInt32(Console.ReadLine()); // A maximális létszám beolvasása
+                        utazasok.Add(ut); // Az új utazás hozzáadása a listához
                         break;
                     case "4":
                         Console.Write("Add meg az utazás azonosítóját: ");
