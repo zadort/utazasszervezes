@@ -1,9 +1,19 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 class Program
 {
-    struct Utas
+    class Utas
+    {
+        string nev;
+        string cim;
+        string telefonszam;
+        public Utas(string nev,string cim,string telefonszam)
+        {
+            this.nev = nev;
+        }
+    }
+    
     static List<Utas> utasok = new List<Utas>();
 
     static void Main(string[] args)
@@ -64,7 +74,6 @@ class Program
 
     static void UtasAdatokModositasa()
     {
-
+        
     }
 }
-
