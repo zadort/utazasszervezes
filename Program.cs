@@ -8,13 +8,16 @@ namespace utazasszervezes
     {
         static void Main(string[] args)
         {
+            Console.Title = "Utazásszervezés";
             List<Utas> utasok = new List<Utas>(); // Az eddig felvett utasokat tároló lista
             List<Utazas> utazasok = new List<Utazas>(); // Az eddig felvitt utazásokat tároló lista
             string menu = "0"; // A menüpont kiválasztására szolgáló változó
             while (menu != "6") // Amíg a felhasználó nem választja a kilépést
             {
+                Console.Clear();
                 Console.WriteLine("1. Új utas felvétele\n2. Utas adatainak módosítása\n3. Új utazás felvétele\n4. Utazásra jelentkezés\n5. Előleg befizetése és módosítása\n6. Kilépés"); // Menü kiírása
                 menu = Console.ReadLine(); // Menüpont kiválasztása
+                Console.Clear();
                 switch (menu) // A kiválasztott menüpont alapján való elágazás
                 {
                     case "1":
